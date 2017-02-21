@@ -43,7 +43,7 @@ var app = express();
 app.use(express.static('public'));
 
 app.get('/items', function(request, response) {
-    response.json(storage.items);
+    response.json(storage.items); // list or array
 });
 app.post('/items', jsonParser, function(request, response){
  
@@ -92,7 +92,8 @@ app.put('/items/:id', jsonParser, function(request, response){
 
 app.listen(process.env.PORT || 8080, process.env.IP);
 
-
+exports.app = app;
+exports.storage = storage;
 
 
 
